@@ -1,0 +1,36 @@
+* {
+  font-family: "GothamPro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+sup {
+  font-size: 20px;
+}
+
+.header {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header button {
+  font-size: 1rem;
+}
+
+.btn {
+  font-size: 1.5rem;
+}
+
+.result {
+  margin: 20px 0px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links img {
+  width: 30px;
+}
