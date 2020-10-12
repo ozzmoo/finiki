@@ -49,6 +49,10 @@ sup {
   margin-bottom: 20px;
 }
 
+.add-form .btn {
+  margin-bottom: 0px;
+}
+
 @media (max-width: 600px) {
   .buttons .btn {
     font-size: 1rem;
@@ -57,4 +61,6 @@ sup {
   .buttons {
     flex-direction: column;
   }
+
+
 }
