@@ -28,7 +28,9 @@ function getStudents(id) {
       console.log('web-sheets@webium-test.iam.gserviceaccount.com')
       document.querySelector('.students').innerHTML = `
       <div class="alert alert-danger" role="alert">
-        Предоставьте доступ к таблице пользователю: web-sheets@webium-test.iam.gserviceaccount.com
+        Откройте доступ к таблице (<a href="https://telegra.ph/Kak-polzovatsya-finikami-10-11">см. инструкцию</a>)
+
+        
       </div>
       `
       document.querySelector('.randomize').disabled = true
