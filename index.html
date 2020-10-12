@@ -37,14 +37,16 @@
 
     </div>
     <div class="main">
-      <div class="input-group input-group-sm mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-sm">ID таблицы</span>
-        </div>
-        <input type="text" class="sheetlink form-control" aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-sm" value="" placeholder=". . .">
-      </div>
 
+      <form action="" autocomplete="on">
+        <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm">ID таблицы</span>
+          </div>
+          <input type="text" class="sheetlink form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-sm" value="" placeholder=". . ." autocomplete="id" name="id">
+        </div>
+      </form>
       <div class="buttons">
         <div class="buttons--left">
           <input type="button" class="submit btn btn-primary btn-sm" value="Показать список">
