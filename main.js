@@ -19,14 +19,12 @@ document.querySelector('.add').onclick = () => {
   } else {
 
     studentsDiv.innerHTML = `
-      <div class="input-group input-group-lg">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="">Имя и кол-во фиников</span>
-        </div>
-        <input type="text" class="student-name form-control">
-        <input type="text" class="student-count form-control">
+      <div class="add-form input-group input-group-sm">
+        
+        <input type="text" class="student-name form-control" placeholder="Имя">
+        <input type="text" class="student-count form-control" placeholder="Кол-во фиников">
         <div class="input-group-append">
-          <button class="submit-add btn btn-outline-secondary btn-primary" type="button">Добавить</button>
+          <button class="submit-add btn btn-outline-secondary btn-primary btn-sm" type="button">Добавить</button>
         </div>
       </div>
     `
