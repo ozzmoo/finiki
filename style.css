@@ -21,11 +21,6 @@ sup {
   font-size: 1.5rem;
 }
 
-.submit {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
 .result {
   margin: 20px 0px;
 }
@@ -38,4 +33,17 @@ sup {
 
 .links img {
   width: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-add {
+  color: white;
+}
+
+.students {
+  margin-bottom: 20px;
 }

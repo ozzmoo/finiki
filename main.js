@@ -7,6 +7,52 @@ document.querySelector('.randomize').onclick = () => {
   computeStudents(students)
 }
 
+document.querySelector('.add').onclick = () => {
+  const studentsDiv = document.querySelector('.students')
+  const id = document.querySelector('.sheetlink').value
+  if (id == '' || id == undefined) {
+    studentsDiv.innerHTML = `
+      <div class="alert alert-danger" role="alert">
+        Введите ID таблицы
+      </div>
+      `
+  } else {
+
+    studentsDiv.innerHTML = `
+      <div class="input-group input-group-lg">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="">Имя и кол-во фиников</span>
+        </div>
+        <input type="text" class="student-name form-control">
+        <input type="text" class="student-count form-control">
+        <div class="input-group-append">
+          <button class="submit-add btn btn-outline-secondary btn-primary" type="button">Добавить</button>
+        </div>
+      </div>
+    `
+  }
+
+  document.querySelector('.submit-add').addEventListener('click', () => {
+    let data = {
+      name: '',
+      count: null
+    }
+    data['name'] = document.querySelector('.student-name').value
+    data['count'] = parseInt(document.querySelector('.student-count').value)
+    if (data.name == '' || isNaN(data.count)) {
+      studentsDiv.innerHTML = `
+      <div class="alert alert-danger" role="alert">
+        Заполните все поля
+      </div>
+      `
+    } else {
+      console.log(data)
+      document.querySelector('.submit-add').onclick = addFiniks(data, id)
+    }
+
+  })
+
+}
 
 
 let students = []
@@ -25,12 +71,9 @@ function getStudents(id) {
       showStudents(students)
     },
     error: function (xhr, status) {
-      console.log('web-sheets@webium-test.iam.gserviceaccount.com')
       document.querySelector('.students').innerHTML = `
       <div class="alert alert-danger" role="alert">
         Откройте доступ к таблице (<a href="https://telegra.ph/Kak-polzovatsya-finikami-10-11">см. инструкцию</a>)
-
-        
       </div>
       `
       document.querySelector('.randomize').disabled = true
@@ -80,4 +123,32 @@ function computeStudents(students) {
 
    `
   console.log(`Номер победителя: ${randomStudent + 1 } - ${students[randomStudent]}`)
+}
+
+function addFiniks(data, id) {
+  $.ajax({
+    url: "https://webium.herokuapp.com/add",
+    type: "POST",
+    crossDomain: true,
+    data: {
+      'data': {
+        name: data.name,
+        count: data.count
+      },
+      'id': id
+    },
+    dataType: "json",
+    success: function (response) {
+      students = response;
+      showStudents(students)
+    },
+    error: function (xhr, status) {
+      document.querySelector('.students').innerHTML = `
+      <div class="alert alert-danger" role="alert">
+        Откройте доступ к таблице (<a href="https://telegra.ph/Kak-polzovatsya-finikami-10-11">см. инструкцию</a>)
+      </div>
+      `
+      document.querySelector('.randomize').disabled = true
+    }
+  });
 }
