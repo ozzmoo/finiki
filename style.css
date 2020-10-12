@@ -19,6 +19,7 @@ sup {
 
 .btn {
   font-size: 1.5rem;
+  margin-bottom: 5px;
 }
 
 .result {
@@ -46,4 +47,14 @@ sup {
 
 .students {
   margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .buttons .btn {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
 }
