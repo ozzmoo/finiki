@@ -23,19 +23,23 @@ document.querySelector('.add').onclick = () => {
         
         <input type="text" class="student-name form-control" placeholder="Имя">
         <input type="text" class="student-count form-control" placeholder="Кол-во фиников">
+        
         <div class="input-group-append">
           <button class="submit-add btn btn-outline-secondary btn-primary btn-sm" type="button">Добавить</button>
         </div>
       </div>
+      <input type="text" class="comment form-control" placeholder="Комментарий">
     `
   }
 
   document.querySelector('.submit-add').addEventListener('click', () => {
     let data = {
       name: '',
-      count: null
+      count: null,
+      comment: ''
     }
     data['name'] = document.querySelector('.student-name').value
+    data['comment'] = document.querySelector('.comment').value
     data['count'] = parseInt(document.querySelector('.student-count').value)
     if (data.name == '' || isNaN(data.count)) {
       studentsDiv.innerHTML = `
@@ -57,7 +61,7 @@ let students = []
 
 function getStudents(id) {
   $.ajax({
-    url: "https://webium.herokuapp.com/sheet",
+    url: "http://localhost:3000/sheet",
     type: "POST",
     crossDomain: true,
     data: {
@@ -125,13 +129,14 @@ function computeStudents(students) {
 
 function addFiniks(data, id) {
   $.ajax({
-    url: "https://webium.herokuapp.com/add",
+    url: "http://localhost:3000/add",
     type: "POST",
     crossDomain: true,
     data: {
       'data': {
         name: data.name,
-        count: data.count
+        count: data.count,
+        comment: data.comment
       },
       'id': id
     },
