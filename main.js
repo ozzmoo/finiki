@@ -61,7 +61,7 @@ let students = []
 
 function getStudents(id) {
   $.ajax({
-    url: "http://localhost:3000/sheet",
+    url: "https://webium.herokuapp.com/sheet",
     type: "POST",
     crossDomain: true,
     data: {
@@ -129,7 +129,7 @@ function computeStudents(students) {
 
 function addFiniks(data, id) {
   $.ajax({
-    url: "http://localhost:3000/add",
+    url: "https://webium.herokuapp.com/add",
     type: "POST",
     crossDomain: true,
     data: {
